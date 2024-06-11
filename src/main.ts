@@ -17,7 +17,7 @@ export default class JournalisticImporter extends Plugin {
 		await this.loadSettings();
 
 		// This creates an icon in the left ribbon.
-		const ribbonIconEl = this.addRibbonIcon('dice', 'Journalistic Importer', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('import', 'Journalistic Importer', (evt: MouseEvent) => {
 			// Called when the user clicks the icon.
 			new Notice('Start import');
 		});
