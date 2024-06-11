@@ -1,6 +1,6 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
-import { JournalisticImporterSettings } from './JournalisticImporterSettings';
 import { DEFAULT_SETTINGS } from './constants/settings';
+import { JournalisticImporterSettings } from './models/JournalisticImporterSettings';
 
 
 export default class JournalisticImporter extends Plugin {
@@ -11,15 +11,9 @@ export default class JournalisticImporter extends Plugin {
 
 		// This creates an icon in the left ribbon.
 		const ribbonIconEl = this.addRibbonIcon('import', 'Journalistic Importer', (evt: MouseEvent) => {
-			// Called when the user clicks the icon.
-			new Notice('Start import');
 		});
 		// Perform additional things with the ribbon
 		ribbonIconEl.addClass('my-plugin-ribbon-class');
-
-		// This adds a status bar item to the bottom of the app. Does not work on mobile apps.
-		const statusBarItemEl = this.addStatusBarItem();
-		statusBarItemEl.setText('Status Bar Text');
 
 		// This adds a simple command that can be triggered anywhere
 		this.addCommand({
