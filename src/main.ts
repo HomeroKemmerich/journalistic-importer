@@ -1,17 +1,10 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { JournalisticImporterSettings } from './JournalisticImporterSettings';
+import { DEFAULT_SETTINGS } from './constants/settings';
 
-// Remember to rename these classes and interfaces!
-
-interface MyPluginSettings {
-	mySetting: string;
-}
-
-const DEFAULT_SETTINGS: MyPluginSettings = {
-	mySetting: 'default'
-}
 
 export default class JournalisticImporter extends Plugin {
-	settings: MyPluginSettings;
+	settings: JournalisticImporterSettings;
 
 	async onload() {
 		await this.loadSettings();
@@ -125,9 +118,9 @@ class SampleSettingTab extends PluginSettingTab {
 			.setDesc('It\'s a secret')
 			.addText(text => text
 				.setPlaceholder('Enter your secret')
-				.setValue(this.plugin.settings.mySetting)
+				.setValue(this.plugin.settings.entriesDestinationFolder)
 				.onChange(async (value) => {
-					this.plugin.settings.mySetting = value;
+					this.plugin.settings.entriesDestinationFolder = value;
 					await this.plugin.saveSettings();
 				}));
 	}
