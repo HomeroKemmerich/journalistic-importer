@@ -1,4 +1,4 @@
-import { JournalisticImporterSettings } from "src/JournalisticImporterSettings";
+import { JournalisticImporterSettings } from "src/models/JournalisticImporterSettings";
 
 export const DEFAULT_SETTINGS: JournalisticImporterSettings = {
 	entriesDestinationFolder: "",
