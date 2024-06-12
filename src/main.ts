@@ -1,8 +1,8 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
-import { ImporterModal } from './components/ImporterModal';
-import { JournalisticImporterSettingsTab } from './components/JournalisticImporterSettingsTab';
 import { DEFAULT_SETTINGS } from './constants/settings';
+import { ImporterModal } from './models/ImporterModal';
 import { JournalisticImporterSettings } from './models/JournalisticImporterSettings';
+import { JournalisticImporterSettingsTab } from './models/JournalisticImporterSettingsTab';
 
 
 export default class JournalisticImporter extends Plugin {
