@@ -9,13 +9,10 @@ export class ImporterModal extends Modal{
 		const {contentEl} = this;
 		contentEl.setText('Journalistic importer');
 
-		const rowDiv = contentEl.createDiv({cls: 'row'});
+		const importerForm = contentEl.createEl('form',{cls:'row'});
 
-		const textColumn = rowDiv.createDiv({cls: 'column'})
-		const inputColumn = rowDiv.createDiv({cls: 'column'})
-
-		const importText = textColumn.createEl('p', {text: 'Select the JSON file to be imported'})
-		const fileInput = inputColumn.createEl('input', {type: 'file'})
+		const textColumn = importerForm.createEl('label', {cls: 'column', text: 'Select the json file to be imported'})
+		const inputColumn = importerForm.createEl('input', {type: 'file', cls: 'column'})
 	}
 
 	onClose(): void {

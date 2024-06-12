@@ -49,29 +49,3 @@ export default class JournalisticImporter extends Plugin {
 	}
 }
 
-
-class SampleSettingTab extends PluginSettingTab {
-	plugin: JournalisticImporter;
-
-	constructor(app: App, plugin: JournalisticImporter) {
-		super(app, plugin);
-		this.plugin = plugin;
-	}
-
-	display(): void {
-		const {containerEl} = this;
-
-		containerEl.empty();
-
-		new Setting(containerEl)
-			.setName('Setting #1')
-			.setDesc('It\'s a secret')
-			.addText(text => text
-				.setPlaceholder('Enter your secret')
-				.setValue(this.plugin.settings.entriesDestinationFolder)
-				.onChange(async (value) => {
-					this.plugin.settings.entriesDestinationFolder = value;
-					await this.plugin.saveSettings();
-				}));
-	}
-}
