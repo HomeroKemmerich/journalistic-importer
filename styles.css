@@ -1,9 +1,22 @@
 .row {
 	display: flex;
 	align-items: center;
-	padding-top: 16px;
+	padding-bottom: 16px;
   }
   
   .column {
 	flex: 50%;
   }
+
+.import-form {
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+
+.cta-button{
+	padding-right: 16px;
+}
+
+.form-actions{
+	float: right;
+}

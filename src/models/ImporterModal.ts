@@ -1,4 +1,4 @@
-import { App, Modal } from "obsidian";
+import { App, Modal, Notice } from "obsidian";
 
 export class ImporterModal extends Modal{
 	constructor(app: App){
@@ -9,10 +9,21 @@ export class ImporterModal extends Modal{
 		const {contentEl} = this;
 		contentEl.setText('Journalistic importer');
 
-		const importerForm = contentEl.createEl('form',{cls:'row'});
+		const importForm = contentEl.createEl('form', {cls: 'import-form'});
 
-		const textColumn = importerForm.createEl('label', {cls: 'column', text: 'Select the json file to be imported'})
-		const inputColumn = importerForm.createEl('input', {type: 'file', cls: 'column'})
+		const inputRow = importForm.createDiv({cls: 'row'})
+
+		const importLabel = inputRow.createEl('label', {cls: 'column', text: 'Select the json file to be imported'})
+		const importInput = inputRow.createEl('input', {type: 'file', cls: 'column'})
+
+		const actionRow = importForm.createDiv({cls: 'form-actions'})
+		
+		const cancelButton = actionRow.createEl('button', {text: 'Cancel', cls: 'cta-button'});
+		const importButton = actionRow.createEl('button', {text: 'Import', cls: 'cta-button'});
+		importButton.onClickEvent(() => {
+			// this.onClose();
+			new Notice("Works");
+		})
 	}
 
 	onClose(): void {
