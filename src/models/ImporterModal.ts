@@ -7,6 +7,9 @@ export class ImporterModal extends Modal{
 
 	onOpen(): void {
 		const {contentEl} = this;
+
+		let files;
+
 		contentEl.setText('Journalistic importer');
 
 		const importForm = contentEl.createEl('form', {cls: 'import-form'});
@@ -14,20 +17,49 @@ export class ImporterModal extends Modal{
 		const inputRow = importForm.createDiv({cls: 'row'})
 
 		const importLabel = inputRow.createEl('label', {cls: 'column', text: 'Select the json file to be imported'})
+
 		const importInput = inputRow.createEl('input', {type: 'file', cls: 'column'})
+		importInput.addEventListener('change',async (event: Event) => {
+			const target = event.target as HTMLInputElement;
+			const files = target.files;
+
+			if(!files){
+				this.onError('Please, select a file');
+			}
+
+			if(files.length < 1){
+				this.onError('You must select a file');
+			}
+
+			const file = target.files![0];
+
+			try {
+				const content = (await file.text());
+				const export = JSON.parse(info);
+
+			} catch(error) {
+				this.onError(error.message)
+			}
+		});
 
 		const actionRow = importForm.createDiv({cls: 'form-actions'})
 		
 		const cancelButton = actionRow.createEl('button', {text: 'Cancel', cls: 'cta-button'});
 		const importButton = actionRow.createEl('button', {text: 'Import', cls: 'cta-button'});
-		importButton.onClickEvent(() => {
-			// this.onClose();
-			new Notice("Works");
-		})
+
+		cancelButton.onClickEvent(() => {
+			this.close();
+		});
+		
 	}
 
 	onClose(): void {
 		const {contentEl} = this;
 		contentEl.empty();
+	}
+
+	onError(description: string): void {
+		new Notice(description);
+		this.onOpen();
 	}
 }
