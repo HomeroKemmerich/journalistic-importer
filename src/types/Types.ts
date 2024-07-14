@@ -1,0 +1,1 @@
+export type FileListOrNull = FileList | null;
