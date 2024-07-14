@@ -1,4 +1,6 @@
 import { App, Modal, Notice } from "obsidian";
+import { Import } from "src/modules/import/Import";
+import { FileListOrNull } from "src/types/Types";
 
 export class ImporterModal extends Modal{
 	constructor(app: App){
@@ -8,7 +10,7 @@ export class ImporterModal extends Modal{
 	onOpen(): void {
 		const {contentEl} = this;
 
-		let files;
+		let files: FileListOrNull;
 
 		contentEl.setText('Journalistic importer');
 
@@ -25,14 +27,14 @@ export class ImporterModal extends Modal{
 		//#endregion
 
 		//#region event listeners
-		importInput.addEventListener('change',async (event: Event) => {
+		importInput.addEventListener('change', async (event: Event) => {
 			const target = event.target as HTMLInputElement;
 			files = target.files;
 		});
 
 
 		importButton.onClickEvent(() => {
-			
+			new Import(files);
 			this.close();
 		})
 
