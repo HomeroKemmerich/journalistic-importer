@@ -12,24 +12,29 @@ export class ImporterModal extends Modal{
 
 		contentEl.setText('Journalistic importer');
 
+		//#region components
 		const importForm = contentEl.createEl('form', {cls: 'import-form'});
 
 		const inputRow = importForm.createDiv({cls: 'row'})
-
 		const importLabel = inputRow.createEl('label', {cls: 'column', text: 'Select the json file to be imported'})
-
 		const importInput = inputRow.createEl('input', {type: 'file', cls: 'column'})
-		importInput.addEventListener('change',async (event: Event) => {
-			const target = event.target as HTMLInputElement;
-			const files = target.files;
-
-			
-		});
 
 		const actionRow = importForm.createDiv({cls: 'form-actions'})
-		
 		const cancelButton = actionRow.createEl('button', {text: 'Cancel', cls: 'cta-button'});
 		const importButton = actionRow.createEl('button', {text: 'Import', cls: 'cta-button'});
+		//#endregion
+
+		//#region event listeners
+		importInput.addEventListener('change',async (event: Event) => {
+			const target = event.target as HTMLInputElement;
+			files = target.files;
+		});
+
+
+		importButton.onClickEvent(() => {
+			
+			this.close();
+		})
 
 		cancelButton.onClickEvent(() => {
 			this.close();
