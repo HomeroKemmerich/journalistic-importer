@@ -23,23 +23,7 @@ export class ImporterModal extends Modal{
 			const target = event.target as HTMLInputElement;
 			const files = target.files;
 
-			if(!files){
-				this.onError('Please, select a file');
-			}
-
-			if(files.length < 1){
-				this.onError('You must select a file');
-			}
-
-			const file = target.files![0];
-
-			try {
-				const content = (await file.text());
-				const export = JSON.parse(info);
-
-			} catch(error) {
-				this.onError(error.message)
-			}
+			
 		});
 
 		const actionRow = importForm.createDiv({cls: 'form-actions'})
