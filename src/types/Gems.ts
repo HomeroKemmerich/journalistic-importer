@@ -9,7 +9,7 @@ export type Gem = {
     createdAt: string;
     updatedAt: string;
     date: string;
-    type: GemType;
+    type: string;
     text: string;
     notes: string;
     source?: string;
