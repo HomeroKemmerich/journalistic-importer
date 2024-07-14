@@ -1,3 +1,9 @@
+import { Entry } from "src/types/Entries";
+import { Gem, Goal, Idea } from "src/types/Gems";
+import { Note } from "src/types/Notes";
+import { Person, PersonGroup } from "src/types/People";
+import { NoteLabel, Tag, TagGroup } from "src/types/Tags";
+
 type ExportInfo = {
     timestamp: string;
     journalisticVersion: string;
@@ -5,16 +11,16 @@ type ExportInfo = {
 }
 
 type ExportData = {
-    entries: Array<Object>;
-    tags: Array<Object>;
-    tagGroups: Array<Object>;
-    people: Array<Object>;
-    personGroups: Array<Object>;
-    notes: Array<Object>;
-    noteLabels: Array<Object>;
-    goals: Array<Object>;
-    gems: Array<Object>;
-    ideas: Array<Object>;
+    entries: Array<Entry>;
+    tags: Array<Tag>;
+    tagGroups: Array<TagGroup>;
+    people: Array<Person>;
+    personGroups: Array<PersonGroup>;
+    notes: Array<Note>;
+    noteLabels: Array<NoteLabel>;
+    goals: Array<Goal>;
+    gems: Array<Gem>;
+    ideas: Array<Idea>;
 }
 
 export type JournalisticExport {
