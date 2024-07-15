@@ -22,18 +22,6 @@ Please, see our [contributing guidelines](./CONTRIBUTING.md).
 
 This is not a commercial solution. Help us improving it by making a donation.
 
-<div id="donate-button-container">
-  <div id="donate-button"></div>
-  <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-  <script>
-    PayPal.Donation.Button({
-      env:'production',
-      hosted_button_id:'UXLVMWFXHWTY2',
-      image: {
-        src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-        alt:'Donate with PayPal button',
-        title:'PayPal - The safer, easier way to pay online!',
-      }
-    }).render('#donate-button');
-  </script>
-</div>
+<a href="https://www.paypal.com/donate/?hosted_button_id=UXLVMWFXHWTY2">
+  <img src="https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png" width="200"/>
+</a>
