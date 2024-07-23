@@ -12,7 +12,7 @@ This is a plugin to import your [Journalistic] entries to [Obsidian]. Note that 
    ```bash
    npm run dev
    ```
-4.Enable the plugin in `Settings > Community Plugins > Journalistic Importer`; 
+4. Enable the plugin in `Settings > Community Plugins > Journalistic Importer`; 
 5. Click the import button at the sidebar;
 6. Select your .json Journalistic export file;
 7. Click "Import";
