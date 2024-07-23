@@ -3,16 +3,21 @@
 [Journalistic]: https://journalisticapp.com/
 [Obsidian]: https://obsidian.md
 
-This is a plugin to import your [Journalistic] entries to [Obsidian]. 
+This is a plugin to import your [Journalistic] entries to [Obsidian]. Note that this is a Work In Progress, and not all features may be available yet.
 
 ## Usage
 
-1. Install this plugin cloning the project at `path/to/vault/.obsidian/plugins`;
-2. Click the import button at the sidebar;
-3. Select your .json Journalistic export file;
-4. Click "Import";
+1. Clone the project at `path/to/vault/.obsidian/plugins`;
+2. Start the program by running:
+   ```bash
+   npm run dev
+   ```
+4.Enable the plugin in `Settings > Community Plugins > Journalistic Importer`; 
+5. Click the import button at the sidebar;
+6. Select your .json Journalistic export file;
+7. Click "Import";
 
-Your journalistic entries can be found in the `Journalistic/` folder, at the root of yout vault.
+<!-- Your journalistic entries can be found in the `Journalistic/` folder, at the root of yout vault. -->
 
 ## Contributing :earth_americas:
 
