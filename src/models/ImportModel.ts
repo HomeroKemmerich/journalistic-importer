@@ -6,4 +6,12 @@ export class ImportModel {
 
     constructor(private app: App){
     }
+
+    public getJournalisticExport(): JournalisticExport {
+        return this.journalisticExport;
+    }
+
+    public setJournalisticExport(journalisticExport: JournalisticExport): void {
+        this.journalisticExport = journalisticExport;
+    }
 }

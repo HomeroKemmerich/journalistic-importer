@@ -20,7 +20,10 @@ export class ImportController {
     public async importFiles(files: FileListOrNull){
         if(files === null){
             new Notice('Invalid file');
+            return;
         }
+
+        //TODO: parse JSON file and add it to the model
 
         return;
     }
