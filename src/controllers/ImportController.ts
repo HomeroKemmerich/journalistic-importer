@@ -2,7 +2,7 @@ import { App, Notice } from "obsidian";
 import { JournalisticExport } from "src/types/JournalisticExport";
 import { FileListOrNull } from "src/types/Types";
 import { ImportView } from "src/views/ImportView";
-import { ImportModel } from "../providers/ImportService";
+import { ImportModel } from "../models/ImportModel";
 
 export class ImportController {
     view: ImportView;
@@ -13,7 +13,15 @@ export class ImportController {
         this.model = new ImportModel(app);
     }
 
-    public start(){
+    public openModal(){
         this.view.open();
+    }
+
+    public async importFiles(files: FileListOrNull){
+        if(files === null){
+            new Notice('Invalid file');
+        }
+
+        return;
     }
 }

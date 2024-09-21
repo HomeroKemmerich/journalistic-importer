@@ -33,7 +33,8 @@ export class ImportView extends Modal{
 		});
 
 
-		importButton.onClickEvent(() => {
+		importButton.onClickEvent(async () => {
+			await this.controller.importFiles(files)
 			this.close();
 		})
 

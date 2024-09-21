@@ -13,14 +13,14 @@ export default class JournalisticImporter extends Plugin {
 
 		// Left ribbon icon
 		const ribbonIconEl = this.addRibbonIcon('import', 'Journalistic Importer', (evt: MouseEvent) => {
-			new ImportController(this.app).start()
+			new ImportController(this.app).openModal()
 		});
 
 		this.addCommand({
 			id: 'start-importer-modal',
 			name: 'start importer',
 			callback: () => {
-				new ImportController(this.app).start()
+				new ImportController(this.app).openModal()
 			}
 		});
 
