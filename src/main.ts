@@ -1,6 +1,7 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { DEFAULT_SETTINGS } from './constants/settings';
-import { JournalisticImporterSettings } from './models/JournalisticImporterSettings';
+import { ImportController } from './controllers/ImportController';
+import JournalisticImporterSettings from './models/JournalisticImporterSettings';
 import { ImportView } from './views/ImportView';
 
 
@@ -12,16 +13,14 @@ export default class JournalisticImporter extends Plugin {
 
 		// Left ribbon icon
 		const ribbonIconEl = this.addRibbonIcon('import', 'Journalistic Importer', (evt: MouseEvent) => {
-			new ImportView(this.app).open()
+			new ImportController(this.app).start()
 		});
-		// Perform additional things with the ribbon
-		ribbonIconEl.addClass('my-plugin-ribbon-class');
 
 		this.addCommand({
 			id: 'start-importer-modal',
 			name: 'start importer',
 			callback: () => {
-				new ImportView(this.app).open()
+				new ImportController(this.app).start()
 			}
 		});
 

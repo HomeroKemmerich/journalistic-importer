@@ -1,9 +1,9 @@
 import { App, Modal, Notice } from "obsidian";
-import { ImportModel } from "src/models/Import";
+import { ImportController } from "src/controllers/ImportController";
 import { FileListOrNull } from "src/types/Types";
 
 export class ImportView extends Modal{
-	constructor(app: App){
+	constructor(app: App, private controller: ImportController){
 		super(app)
 	}
 

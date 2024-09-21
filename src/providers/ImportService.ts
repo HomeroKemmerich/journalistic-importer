@@ -1,13 +1,10 @@
+import { App } from "obsidian";
 import { JournalisticExport } from "src/types/JournalisticExport";
 
 export class ImportModel {
-    private content: JournalisticExport;
+    app: App;
 
-    public read(file: string){
-        this.content = JSON.parse(file); 
-    }
-
-    public write(journalisticExport: JournalisticExport): boolean {
-        
+    constructor(app: App){
+        this.app = app;
     }
 }
