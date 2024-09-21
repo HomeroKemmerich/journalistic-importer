@@ -7,20 +7,23 @@ import { ImportView } from './views/ImportView';
 
 export default class JournalisticImporter extends Plugin {
 	settings: JournalisticImporterSettings;
+	controller: ImportController;
 
 	async onload() {
 		await this.loadSettings();
 
+		this.controller = new ImportController(this.app);
+
 		// Left ribbon icon
 		const ribbonIconEl = this.addRibbonIcon('import', 'Journalistic Importer', (evt: MouseEvent) => {
-			new ImportController(this.app).openModal()
+			this.controller.openModal();
 		});
 
 		this.addCommand({
 			id: 'start-importer-modal',
 			name: 'start importer',
 			callback: () => {
-				new ImportController(this.app).openModal()
+				this.controller.openModal()
 			}
 		});
 
