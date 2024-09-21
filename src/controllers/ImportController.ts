@@ -5,8 +5,8 @@ import { ImportView } from "src/views/ImportView";
 import { ImportModel } from "../models/ImportModel";
 
 export class ImportController {
-    view: ImportView;
-    model: ImportModel;
+    private view: ImportView;
+    private model: ImportModel;
 
     constructor(app: App){
         this.view = new ImportView(app, this);
