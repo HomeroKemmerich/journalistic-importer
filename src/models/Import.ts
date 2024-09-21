@@ -1,8 +1,7 @@
 import { JournalisticExport } from "src/models/JournalisticExport";
-import { Module } from "src/models/Module";
 import { FileListOrNull } from "src/types/Types";
-import { ImportController } from "./ImportController";
-import { ImportService } from "./ImportService";
+import { ImportController } from "../controllers/ImportController";
+import { ImportService } from "../providers/ImportService";
 
 export class Import {
     controller: ImportController;
@@ -18,6 +17,6 @@ export class Import {
     }
 
     write(journalisticExport: JournalisticExport): void{
-
+        
     }
 }

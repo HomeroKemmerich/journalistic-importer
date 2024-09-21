@@ -5,4 +5,8 @@ export class ImportService {
         const journalisticExport: JournalisticExport = JSON.parse(file);
         return journalisticExport; 
     }
+
+    public write(journalisticExport: JournalisticExport): boolean {
+        
+    }
 }

@@ -1,5 +1,5 @@
 import { App, Modal, Notice } from "obsidian";
-import { Import } from "src/modules/import/Import";
+import { Import } from "src/models/Import";
 import { FileListOrNull } from "src/types/Types";
 
 export class ImporterModal extends Modal{

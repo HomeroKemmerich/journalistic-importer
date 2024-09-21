@@ -1,4 +1,4 @@
-import { Entry } from "src/types/Entries";
+import { EntryType } from "src/types/Entries";
 import { Gem, Goal, Idea } from "src/types/Gems";
 import { Note } from "src/types/Notes";
 import { Person, PersonGroup } from "src/types/People";
@@ -11,7 +11,7 @@ type ExportInfo = {
 }
 
 type ExportData = {
-    entries: Array<Entry>;
+    entries: Array<EntryType>;
     tags: Array<Tag>;
     tagGroups: Array<TagGroup>;
     people: Array<Person>;

@@ -1,7 +1,7 @@
 import { Notice } from "obsidian";
 import { JournalisticExport } from "src/models/JournalisticExport";
 import { FileListOrNull } from "src/types/Types";
-import { ImportService } from "./ImportService";
+import { ImportService } from "../providers/ImportService";
 
 export class ImportController {
     constructor(private journalisticService: ImportService){}
@@ -22,6 +22,15 @@ export class ImportController {
 
         } catch(error) {
             new Notice(error.message)
+        }
+    }
+
+    public async write( journalisticExport: JournalisticExport): Promise<boolean> {
+        try{
+            const wrote = this.journalisticService.write(journalisticExport);
+            return wrote;
+        } catch(error){
+            new Notice(error);
         }
     }
 }

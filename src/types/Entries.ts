@@ -1,10 +1,10 @@
-type Dream = {
+export type Dream = {
     createdAt: string;
     updatedAt: string;
     text: string;
 }
 
-type Bullet = {
+export type Bullet = {
     createdAt: string;
     updatedAt: string;
     position: string;
@@ -12,7 +12,7 @@ type Bullet = {
     text: string;
 }
 
-export type Entry = {
+export type EntryType = {
     createdAt: string;
     updatedAt: string;
     date: string;
