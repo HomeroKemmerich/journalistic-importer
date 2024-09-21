@@ -1,8 +1,8 @@
 import { App, Modal, Notice } from "obsidian";
-import { Import } from "src/models/Import";
+import { ImportModel } from "src/models/Import";
 import { FileListOrNull } from "src/types/Types";
 
-export class ImporterModal extends Modal{
+export class ImportView extends Modal{
 	constructor(app: App){
 		super(app)
 	}
@@ -34,7 +34,6 @@ export class ImporterModal extends Modal{
 
 
 		importButton.onClickEvent(() => {
-			new Import(files);
 			this.close();
 		})
 

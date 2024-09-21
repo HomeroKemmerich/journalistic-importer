@@ -1,11 +1,11 @@
-import { JournalisticExport } from "src/models/JournalisticExport";
+import { JournalisticExport } from "src/types/JournalisticExport";
 import { FileListOrNull } from "src/types/Types";
 import { ImportController } from "../controllers/ImportController";
-import { ImportService } from "../providers/ImportService";
+import { ImportModel } from "../providers/ImportService";
 
 export class Import {
     controller: ImportController;
-    provider: ImportService;
+    provider: ImportModel;
 
     constructor(journalisticExport: FileListOrNull){
         const _journalisticExport = this.read(journalisticExport)

@@ -1,10 +1,13 @@
 import { Notice } from "obsidian";
-import { JournalisticExport } from "src/models/JournalisticExport";
+import { JournalisticExport } from "src/types/JournalisticExport";
 import { FileListOrNull } from "src/types/Types";
-import { ImportService } from "../providers/ImportService";
+import { ImportView } from "src/views/ImportView";
+import { ImportModel } from "../providers/ImportService";
 
 export class ImportController {
-    constructor(private journalisticService: ImportService){}
+    private model: ImportModel;
+    private view: ImportView
+    constructor(private journalisticService: ImportModel){}
 
     public async read(files: FileListOrNull): Promise<JournalisticExport | undefined>{
         try {

@@ -1,9 +1,10 @@
-import { JournalisticExport } from "src/models/JournalisticExport";
+import { JournalisticExport } from "src/types/JournalisticExport";
 
-export class ImportService {
+export class ImportModel {
+    private content: JournalisticExport;
+
     public read(file: string){
-        const journalisticExport: JournalisticExport = JSON.parse(file);
-        return journalisticExport; 
+        this.content = JSON.parse(file); 
     }
 
     public write(journalisticExport: JournalisticExport): boolean {
