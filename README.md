@@ -5,6 +5,10 @@
 
 This is a plugin to import your [Journalistic] entries to [Obsidian]. Note that this is a Work In Progress, and not all features may be available yet.
 
+## Public commitment
+
+This plugin is set to be released at January 1st 2025.
+
 ## Usage
 
 1. Clone the project at `path/to/vault/.obsidian/plugins`;
