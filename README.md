@@ -7,7 +7,7 @@ This is a plugin to import your [Journalistic] entries to [Obsidian]. Note that 
 
 ## Public commitment
 
-This plugin is set to be released at January 1st 2025.
+This plugin is set to be released at [@January 1st 2025](./journalistic-importer-official-release.ics).
 
 ## Usage
 
