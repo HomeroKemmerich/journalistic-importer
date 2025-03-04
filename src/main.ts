@@ -1,18 +1,18 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { DEFAULT_SETTINGS } from './constants/settings';
-import { ImportController } from './controllers/ImportController';
+import { AppController } from './controllers/ImportController';
 import JournalisticImporterSettings from './models/JournalisticImporterSettings';
 import { ImportView } from './views/ImportView';
 
 
 export default class JournalisticImporter extends Plugin {
 	settings: JournalisticImporterSettings;
-	controller: ImportController;
+	controller: AppController;
 
 	async onload() {
 		await this.loadSettings();
 
-		this.controller = new ImportController(this.app);
+		this.controller = new AppController(this.app);
 
 		// Left ribbon icon
 		const ribbonIconEl = this.addRibbonIcon('import', 'Journalistic Importer', (evt: MouseEvent) => {

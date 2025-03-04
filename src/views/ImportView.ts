@@ -1,29 +1,29 @@
 import { App, Modal, Notice } from "obsidian";
-import { ImportController } from "src/controllers/ImportController";
+import { AppController } from "src/controllers/ImportController";
 import { FileListOrNull } from "src/types/Types";
 
-export class ImportView extends Modal{
-	constructor(app: App, private controller: ImportController){
+export class ImportView extends Modal {
+	constructor(app: App, private controller: AppController) {
 		super(app)
 	}
 
 	onOpen(): void {
-		const {contentEl} = this;
+		const { contentEl } = this;
 
 		let files: FileListOrNull;
 
 		contentEl.setText('Journalistic importer');
 
 		//#region components
-		const importForm = contentEl.createEl('form', {cls: 'import-form'});
+		const importForm = contentEl.createEl('form', { cls: 'import-form' });
 
-		const inputRow = importForm.createDiv({cls: 'row'})
-		const importLabel = inputRow.createEl('label', {cls: 'column', text: 'Select the json file to be imported'})
-		const importInput = inputRow.createEl('input', {type: 'file', cls: 'column'})
+		const inputRow = importForm.createDiv({ cls: 'row' })
+		const importLabel = inputRow.createEl('label', { cls: 'column', text: 'Select the json file to be imported' })
+		const importInput = inputRow.createEl('input', { type: 'file', cls: 'column' })
 
-		const actionRow = importForm.createDiv({cls: 'form-actions'})
-		const cancelButton = actionRow.createEl('button', {text: 'Cancel', cls: 'cta-button'});
-		const importButton = actionRow.createEl('button', {text: 'Import', cls: 'cta-button'});
+		const actionRow = importForm.createDiv({ cls: 'form-actions' })
+		const cancelButton = actionRow.createEl('button', { text: 'Cancel', cls: 'cta-button' });
+		const importButton = actionRow.createEl('button', { text: 'Import', cls: 'cta-button' });
 		//#endregion
 
 		//#region event listeners
@@ -41,11 +41,11 @@ export class ImportView extends Modal{
 		cancelButton.onClickEvent(() => {
 			this.close();
 		});
-		
+
 	}
 
 	onClose(): void {
-		const {contentEl} = this;
+		const { contentEl } = this;
 		contentEl.empty();
 	}
 
