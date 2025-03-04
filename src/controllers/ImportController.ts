@@ -8,23 +8,25 @@ export class AppController {
     private view: ImportView;
     private model: ImportModel;
 
+    private files: FileListOrNull;
+
+    public getFiles(): FileListOrNull {
+        return this.files;
+    }
+
+    public setFiles(files: FileListOrNull): void {
+        this.files = files;
+    }
+
     constructor(app: App) {
         this.view = new ImportView(app, this);
         this.model = new ImportModel(app);
     }
 
-    public openModal() {
+    public start() {
         this.view.open();
     }
 
-    public async importFiles(files: FileListOrNull) {
-        if (files === null) {
-            new Notice('Invalid file');
-            return;
-        }
-
-        //TODO: parse JSON file and add it to the model
-
-        return;
+    public parseFiles(): void {
     }
 }
