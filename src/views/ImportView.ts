@@ -14,7 +14,7 @@ export class ImportView extends Modal {
 	private journalisticFile: File;
 
 	
-	constructor(app: App, private controller: AppController) {
+	constructor(app: App, private onFileImport: () => void) {
 		super(app)
 
 		this.contentEl.setText('Journalistic importer');
@@ -54,7 +54,7 @@ export class ImportView extends Modal {
 			}
 			
 			this.journalisticFile = files[0];
-			this.controller.fileImported();
+			this.onFileImport();
 		});
 	}
 

@@ -9,7 +9,7 @@ export class AppController {
         private app: App,
         private model: JournalisticExportModel
     ) {
-        this.view = new ImportView(app, this);
+        this.view = new ImportView(app, this.onFileImport.bind(this));
     }
 
     public async start() {
@@ -17,7 +17,7 @@ export class AppController {
         this.view.listenForFileInput();
     }
 
-    public async fileImported() {
+    public async onFileImport(): Promise<void> {
         const journalisticFile = this.view.getJournalisticFile();
         await this.parseFile(journalisticFile);
     }
