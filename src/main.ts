@@ -1,8 +1,8 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { DEFAULT_SETTINGS } from './constants/settings';
 import { AppController } from './controllers/ImportController';
+import { JournalisticExportModel } from './models/JournalisticExport';
 import JournalisticImporterSettings from './models/JournalisticImporterSettings';
-import { ImportView } from './views/ImportView';
 
 
 export default class JournalisticImporter extends Plugin {
@@ -12,19 +12,14 @@ export default class JournalisticImporter extends Plugin {
 	async onload() {
 		await this.loadSettings();
 
-		this.controller = new AppController(this.app);
+		this.controller = new AppController(
+			this.app,
+			new JournalisticExportModel()
+		);
 
 		// Left ribbon icon
 		const ribbonIconEl = this.addRibbonIcon('import', 'Journalistic Importer', (evt: MouseEvent) => {
 			this.controller.start();
-		});
-
-		this.addCommand({
-			id: 'start-importer-modal',
-			name: 'start importer',
-			callback: () => {
-				this.controller.start()
-			}
 		});
 
 		// If the plugin hooks up any global DOM events (on parts of the app that doesn't belong to this plugin)

@@ -1,32 +1,29 @@
 import { App, Notice } from "obsidian";
-import { JournalisticExport } from "src/types/JournalisticExport";
-import { FileListOrNull } from "src/types/Types";
 import { ImportView } from "src/views/ImportView";
-import { ImportModel } from "../models/ImportModel";
+import { JournalisticExportModel } from "../models/JournalisticExport";
 
 export class AppController {
     private view: ImportView;
-    private model: ImportModel;
 
-    private files: FileListOrNull;
-
-    public getFiles(): FileListOrNull {
-        return this.files;
-    }
-
-    public setFiles(files: FileListOrNull): void {
-        this.files = files;
-    }
-
-    constructor(app: App) {
+    constructor(
+        private app: App,
+        private model: JournalisticExportModel
+    ) {
         this.view = new ImportView(app, this);
-        this.model = new ImportModel(app);
     }
 
-    public start() {
+    public async start() {
         this.view.open();
+        this.view.listenForFileInput();
     }
 
-    public parseFiles(): void {
+    public async fileImported() {
+        const journalisticFile = this.view.getJournalisticFile();
+        await this.parseFile(journalisticFile);
+    }
+
+    public async parseFile(file: File){
+        await this.model.fromJson(file);
+        new Notice(this.model.getInfo().journalisticVersion)
     }
 }

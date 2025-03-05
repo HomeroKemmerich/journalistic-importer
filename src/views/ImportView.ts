@@ -1,6 +1,5 @@
 import { App, Modal, Notice } from "obsidian";
 import { AppController } from "src/controllers/ImportController";
-import { FileListOrNull } from "src/types/Types";
 
 export class ImportView extends Modal {
 
@@ -11,6 +10,8 @@ export class ImportView extends Modal {
 	private actionRow: HTMLDivElement;
 	private cancelButton: HTMLButtonElement;
 	private importButton: HTMLButtonElement;
+
+	private journalisticFile: File;
 
 	
 	constructor(app: App, private controller: AppController) {
@@ -26,8 +27,6 @@ export class ImportView extends Modal {
 		this.cancelButton 	= this.actionRow.createEl('button', { text: 'Cancel', cls: 'cta-button' });
 		this.importButton 	= this.actionRow.createEl('button', { text: 'Import', cls: 'cta-button' });
 		
-		this.importInput.addEventListener('change', this.setFiles);
-
 		this.importButton.onClickEvent(() => this.close)
 		
 		this.cancelButton.onClickEvent(() => this.close);
@@ -45,13 +44,22 @@ export class ImportView extends Modal {
 		this.onOpen();
 	}
 	
-	public notice(content: any) {
-		return new Notice(String(content));
+	public async listenForFileInput(){
+		this.importInput.addEventListener('change', async (e: Event) => {
+			const target = e.target as HTMLInputElement;
+			const files = target.files;
+			
+			if(!files){
+				throw new Error('No file selected');
+			}
+			
+			this.journalisticFile = files[0];
+			this.controller.fileImported();
+		});
 	}
-	
-	public setFiles(e: Event): void {
-		const target = e.target as HTMLInputElement;
-		const files = target.files;
-		this.controller.setFiles(files)
+
+	public getJournalisticFile(): File {
+		return this.journalisticFile;
 	}
+
 }

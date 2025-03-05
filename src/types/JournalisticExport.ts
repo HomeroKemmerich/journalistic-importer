@@ -4,13 +4,13 @@ import { Note } from "src/types/Notes";
 import { Person, PersonGroup } from "src/types/People";
 import { NoteLabel, Tag, TagGroup } from "src/types/Tags";
 
-type ExportInfo = {
+export type ExportInfo = {
     timestamp: string;
     journalisticVersion: string;
     exportVersion: number
 }
 
-type ExportData = {
+export type ExportData = {
     entries: Array<EntryType>;
     tags: Array<Tag>;
     tagGroups: Array<TagGroup>;
@@ -23,7 +23,7 @@ type ExportData = {
     ideas: Array<Idea>;
 }
 
-export type JournalisticExport {
+export type JournalisticExport = {
     info: ExportInfo;
     data: ExportData;
 }
