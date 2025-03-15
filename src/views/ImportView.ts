@@ -21,14 +21,12 @@ export class ImportView extends Modal {
 		
 		this.importForm 	= this.contentEl.createEl('form', { cls: 'import-form' });
 		this.inputRow 		= this.importForm.createDiv({ cls: 'row' })
-		this.importLabel 	= this.inputRow.createEl('label', { cls: 'column', text: 'Select the json file to be imported' })
+		this.importLabel 	= this.inputRow.createEl('label', { cls: 'column', text: 'Select the JSON file to be imported' })
 		this.importInput 	= this.inputRow.createEl('input', { type: 'file', cls: 'column' })
 		this.actionRow 		= this.importForm.createDiv({ cls: 'form-actions' })
 		this.cancelButton 	= this.actionRow.createEl('button', { text: 'Cancel', cls: 'cta-button' });
 		this.importButton 	= this.actionRow.createEl('button', { text: 'Import', cls: 'cta-button' });
-		
-		this.importButton.onClickEvent(() => this.close)
-		
+				
 		this.cancelButton.onClickEvent(() => this.close);
 	}
 	
