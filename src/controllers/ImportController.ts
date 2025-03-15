@@ -1,13 +1,13 @@
 import { App, Notice } from "obsidian";
 import { ImportView } from "src/views/ImportView";
-import { JournalisticExportModel } from "../models/JournalisticExport";
+import { JournalisticExportModel } from "../models/JournalisticExportModel";
 
 export class AppController {
     private view: ImportView;
 
     constructor(
         private app: App,
-        private model: JournalisticExportModel
+        private journalisticExportModel: JournalisticExportModel
     ) {
         this.view = new ImportView(app, this.onFileImport.bind(this));
     }
@@ -23,7 +23,7 @@ export class AppController {
     }
 
     public async parseFile(file: File){
-        await this.model.fromJson(file);
-        new Notice(this.model.getInfo().journalisticVersion)
+        const journalisticExport = await this.journalisticExportModel.fromJson(file);
+        new Notice(journalisticExport.getInfo().journalisticVersion);
     }
 }
