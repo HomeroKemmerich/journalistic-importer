@@ -1,14 +1,14 @@
 export type Person = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     starred: boolean;
     name: string;
     root: boolean;
 }
 
 export type PersonGroup = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     starred: boolean;
     name: string;
     people: Array<string>;
