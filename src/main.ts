@@ -1,7 +1,7 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { DEFAULT_SETTINGS } from './constants/settings';
 import { AppController } from './controllers/ImportController';
-import { JournalisticExportModel } from './models/JournalisticExport';
+import { JournalisticExportModel } from './models/JournalisticExportModel';
 import JournalisticImporterSettings from './models/JournalisticImporterSettings';
 
 

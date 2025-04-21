@@ -14,7 +14,11 @@ export class ImportView extends Modal {
 	private journalisticFile: File;
 
 	
-	constructor(app: App, private onFileImport: () => void) {
+	constructor(
+		app: App, 
+		private onFileImport: () => void,
+		private onImportClicked: () => void
+	) {
 		super(app)
 
 		this.contentEl.setText('Journalistic importer');
@@ -28,6 +32,10 @@ export class ImportView extends Modal {
 		this.importButton 	= this.actionRow.createEl('button', { text: 'Import', cls: 'cta-button' });
 				
 		this.cancelButton.onClickEvent(() => this.close);
+		this.importButton.onClickEvent(() => {
+			this.onImportClicked();
+			this.close();
+		});
 	}
 	
 	onOpen(): void {
