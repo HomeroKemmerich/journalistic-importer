@@ -1,13 +1,13 @@
 export type Goal = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     title: string;
     priority: number;
 }
 
 export type Gem = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     date: string;
     type: string;
     text: string;
@@ -26,8 +26,8 @@ export enum GemType {
 }
 
 export type Idea = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     date: string;
     shortDescription: string;
     longDescription: string;

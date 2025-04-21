@@ -1,6 +1,6 @@
 export type Note = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     date: string;
     title: string;
     text: string;

@@ -1,6 +1,6 @@
 export type Tag = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     starred: boolean;
     pinned: boolean;
     name: string;
@@ -9,8 +9,8 @@ export type Tag = {
 }
 
 export type TagGroup = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     starred: boolean;
     pinned: boolean;
     name: string;
@@ -18,7 +18,7 @@ export type TagGroup = {
 }
 
 export type NoteLabel = {
-    createdAt: string;
-    updatedAt: string;
+    created_dts: string;
+    updated_dts: string;
     name: string;
 }
