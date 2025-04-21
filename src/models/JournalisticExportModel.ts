@@ -1,11 +1,11 @@
-import { TSMarkdownService } from "src/services/TSMarkdownService";
 import { ExportData, ExportInfo, JournalisticExport } from "src/types/JournalisticExport";
+import { Entry } from './Entry';
 
 export class JournalisticExportModel {
     private info: ExportInfo
     private data: ExportData
 
-    constructor (private readonly tsMarkdownService: TSMarkdownService) {
+    constructor () {
 
     }
 
@@ -23,11 +23,11 @@ export class JournalisticExportModel {
         return this.info;
     }
 
-    public toMarkdown(){
-        const pages = [];
-        for (let entry in this.data.entries){
-            
-        }
+    public getEntries(): Entry[] {
+        return this.data.entries.map(entry => {
+            return new Entry(entry);
+        })
     }
+
 
 }
