@@ -4,15 +4,17 @@ import { JournalisticExport } from "../models/JournalisticExportModel";
 
 export class AppController {
 
+    private journalisticImporterView: ImportView;
+
     constructor(
         private app: App,
         private journalisticExport: JournalisticExport,
-        private journalisticImporterView = new ImportView(
-            app,
+    ) {
+        this.journalisticImporterView = new ImportView(
+            this.app,
             this.onFileImport.bind(this),
             this.onImportClicked.bind(this)
-        )
-    ) {
+        );
     }
 
     public async start() {
