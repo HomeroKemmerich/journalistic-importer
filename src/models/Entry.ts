@@ -1,27 +1,28 @@
 import { frontmatter, h1, h2, p, tsMarkdown, ul } from 'ts-markdown';
 import { Bullet, Dream, EntryType } from '../types/Entries';
 
-export class Entry implements EntryType, JournalisticEntity {
-    bullets: Bullet[];
-    created_dts: string;
-    date: string;
-    dreams: Dream[];
-    updated_dts: string;
+export class Entry extends JournalisticEntity {
+    private date: string;
+    private bullets: Bullet[];
+    private dreams: Dream[];
     
     constructor(entry: EntryType) {
-        this.bullets = entry.bullets;
-        this.created_dts = entry.created_dts;
+        super(
+            new Date(entry.created_dts),
+            new Date(entry.updated_dts),
+            `${entry.date}.md`,
+            'Entries',
+            `Entries/${entry.date}.md`,
+        )
+
         this.date = entry.date;
+        this.bullets = entry.bullets;
         this.dreams = entry.dreams;
-        this.updated_dts = entry.updated_dts;
-    }
-
-    getFileContent(): any {
-
+        
         const markdownEntries = [
             frontmatter({
-                created_at: this.created_dts,
-                updated_at: this.updated_dts,
+                created_at: this.createdAt.toISOString(),
+                updated_at: this.updatedAt.toISOString(),
             }),
             h2('Bullets'),
             ul(this.bullets),
@@ -34,11 +35,11 @@ export class Entry implements EntryType, JournalisticEntity {
             )
         }
 
-        return tsMarkdown(markdownEntries);
+        this.content = tsMarkdown(markdownEntries);
     }
-    
-    getFileName(): string {
-        return `entries/${this.date}.md`;
+
+    public getContent() {
+        return this.content;
     }
 
 }
