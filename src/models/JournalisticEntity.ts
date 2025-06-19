@@ -1,4 +1,4 @@
-abstract class JournalisticEntity {
+export default abstract class JournalisticEntity {
     protected createdAt: Date;
     protected updatedAt: Date;
     protected fileName: string;
