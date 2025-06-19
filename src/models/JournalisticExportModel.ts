@@ -1,23 +1,19 @@
-import { JournalisticExport, JournalisticExportData, JournalisticExportInfo } from "src/types/JournalisticExport";
+import { JournalisticExportData, JournalisticExportInfo, JournalisticExportType } from "src/types/JournalisticExport";
 import { JournalisticData } from "./Data";
-import { Entry } from './Entry';
 
-export class JournalisticExportModel {
+export class JournalisticExport {
     private info: JournalisticExportInfo;
     private data: JournalisticData;
 
-    constructor () {
-
+    constructor (file: File) {
+        this.fromJson(file);
     }
 
-    public async fromJson(file: File){
+    public async fromJson(file: File): Promise<void> {
         const fileText = await file.text();
-        const content: JournalisticExport = JSON.parse(fileText);
-
-        this.data = new JournalisticData(content.data);
+        const content: JournalisticExportType = JSON.parse(fileText);
         this.info = content.info;
-
-        return this;
+        this.data = new JournalisticData(content.data);
     }
 
     public getInfo(): JournalisticExportInfo {

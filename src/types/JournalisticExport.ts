@@ -23,7 +23,7 @@ export type JournalisticExportData = {
     ideas: Array<JournalisticIdea>;
 }
 
-export type JournalisticExport = {
+export type JournalisticExportType = {
     info: JournalisticExportInfo;
     data: JournalisticExportData;
 }

@@ -1,7 +1,7 @@
 import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { DEFAULT_SETTINGS } from './constants/settings';
 import { AppController } from './controllers/ImportController';
-import { JournalisticExportModel } from './models/JournalisticExportModel';
+import { JournalisticExport } from './models/JournalisticExportModel';
 import JournalisticImporterSettings from './models/JournalisticImporterSettings';
 
 
@@ -14,7 +14,7 @@ export default class JournalisticImporter extends Plugin {
 
 		this.controller = new AppController(
 			this.app,
-			new JournalisticExportModel()
+			new JournalisticExport()
 		);
 
 		// Left ribbon icon
