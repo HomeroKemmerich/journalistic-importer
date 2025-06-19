@@ -1,7 +1,7 @@
 {
 	"name": "journalistic-importer",
-	"version": "1.0.3",
-	"description": "This is a plugin to import your [Journalistic] entries to [Obsidian].",
+	"version": "1.0.4",
+	"description": "Import your Journalistic exported entries to Obsidian.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
