@@ -3,8 +3,8 @@ import { Entry } from "./Entry";
 import { Gem } from "./Gem";
 import { Goal } from "./Goal";
 import { Idea } from "./Idea";
+import JournalisticEntity from "./JournalisticEntity";
 import { Note } from "./Note";
-import { NoteLabel } from "./NoteLabel";
 import { Person } from "./Person";
 import { PersonGroup } from "./PersonGroup";
 import { Tag } from "./Tag";
@@ -15,7 +15,6 @@ export class JournalisticData {
     goals: Goal[];
     gems: Gem[];
     notes: Note[];
-    noteLabels: NoteLabel[];
     tags: Tag[];
     tagGroups: TagGroup[];
     people: Person[];
@@ -27,11 +26,23 @@ export class JournalisticData {
         this.goals = data.goals.map(goal => new Goal(goal));
         this.gems = data.gems.map(gem => new Gem(gem));
         this.notes = data.notes.map(note => new Note(note));
-        this.noteLabels = data.noteLabels.map(label => new NoteLabel(label));
         this.tags = data.tags.map(tag => new Tag(tag));
         this.tagGroups = data.tagGroups.map(group => new TagGroup(group));
         this.people = data.people.map(person => new Person(person));
         this.personGroups = data.personGroups.map(group => new PersonGroup(group));
         this.ideas = data.ideas.map(idea => new Idea(idea));
+    }
+
+    public asRecord(): Record<string, JournalisticEntity[]> {
+        return {
+            'Entries': this.entries,
+            'Goals': this.goals,
+            'Gems': this.gems,
+            'Notes': this.notes,
+            'Tags': this.tags,
+            'Tag Groups': this.tagGroups,
+            'People': this.people,
+            'PersonGroups': this.personGroups,
+        }
     }
 }

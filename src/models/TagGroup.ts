@@ -7,7 +7,7 @@ export class TagGroup extends JournalisticEntity {
         super(
             new Date(tagGroup.created_dts),
             new Date(tagGroup.updated_dts),
-            `${tagGroup.name}.md`,
+            tagGroup.name,
             "TagGroups"
         );
         const markdownEntries = [

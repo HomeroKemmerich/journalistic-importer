@@ -1,5 +1,6 @@
 import { JournalisticGoal } from "src/types/Gems";
 import { frontmatter, tsMarkdown } from "ts-markdown";
+import JournalisticEntity from "./JournalisticEntity";
 
 export class Goal extends JournalisticEntity {
     title: string;
@@ -10,8 +11,7 @@ export class Goal extends JournalisticEntity {
             new Date(goalData.created_dts),
             new Date(goalData.updated_dts),
             goalData.title,
-            'goals',
-            ''
+            'Goals',
         );
         this.title = goalData.title;
         this.priority = goalData.priority;

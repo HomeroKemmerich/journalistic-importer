@@ -6,6 +6,7 @@ export type JournalisticTag = {
     name: string;
     doMore: boolean;
     doLess: boolean;
+    root?: string;
 }
 
 export type JournalisticTagGroup = {

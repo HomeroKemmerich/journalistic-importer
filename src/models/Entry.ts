@@ -1,23 +1,24 @@
 import { frontmatter, h1, h2, p, tsMarkdown, ul } from 'ts-markdown';
 import { EntryType, JournalisticBullet, JournalisticDream } from '../types/Entries';
+import JournalisticEntity from "./JournalisticEntity";
 
 export class Entry extends JournalisticEntity {
     private date: string;
     private bullets: JournalisticBullet[];
     private dreams: JournalisticDream[];
-    
+
     constructor(entry: EntryType) {
         super(
             new Date(entry.created_dts),
             new Date(entry.updated_dts),
-            `${entry.date}.md`,
+            entry.date,
             'Entries',
         )
 
         this.date = entry.date;
         this.bullets = entry.bullets;
         this.dreams = entry.dreams;
-        
+
         const markdownEntries = [
             frontmatter({
                 created_at: this.createdAt.toISOString(),
@@ -35,10 +36,6 @@ export class Entry extends JournalisticEntity {
         }
 
         this.content = tsMarkdown(markdownEntries);
-    }
-
-    public getContent() {
-        return this.content;
     }
 
 }

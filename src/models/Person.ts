@@ -7,7 +7,7 @@ export class Person extends JournalisticEntity {
         super(
             new Date(person.created_dts),
             new Date(person.updated_dts),
-            `${person.name}.md`,
+            person.name,
             "People"
         );
         const markdownEntries = [

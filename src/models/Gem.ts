@@ -1,13 +1,13 @@
-import { title } from "process";
 import { JournalisticGem } from "src/types/Gems";
 import { frontmatter, h2, p, tsMarkdown } from "ts-markdown";
+import JournalisticEntity from "./JournalisticEntity";
 
 export class Gem extends JournalisticEntity {
     constructor(journalisticGem: JournalisticGem) {
         super(
             new Date(journalisticGem.created_dts),
             new Date(journalisticGem.updated_dts),
-            `${journalisticGem.text.slice(0, 16)}...`,
+            journalisticGem.text,
             "Gems"
         );
 
@@ -16,8 +16,8 @@ export class Gem extends JournalisticEntity {
                 title: journalisticGem.text,
                 date: journalisticGem.date,
                 type: journalisticGem.type,
-                author: journalisticGem.author ? journalisticGem.author : "",
-                source: journalisticGem.source ? journalisticGem.source : "",
+                author: journalisticGem.author || "",
+                source: journalisticGem.source || "",
                 createdAt: this.createdAt.toISOString(),
             }),
             p(journalisticGem.text),

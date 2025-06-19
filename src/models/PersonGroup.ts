@@ -7,7 +7,7 @@ export class PersonGroup extends JournalisticEntity {
         super(
             new Date(group.created_dts),
             new Date(group.updated_dts),
-            `${group.name}.md`,
+            group.name,
             "PersonGroups"
         );
         const markdownEntries = [

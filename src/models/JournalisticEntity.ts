@@ -6,10 +6,11 @@ export default abstract class JournalisticEntity {
     protected filePath: string;
     protected content: string;
 
-    constructor(createdAt: Date, updatedAt: Date, fileName: string, folderName: string) {
+    constructor(createdAt: Date, updatedAt: Date, fileName: string = '', folderName: string) {
+        const safeText = fileName.replace('\n', ' ').replace(/[\\/:*?"<>|]/g, '').slice(0, 16);
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
-        this.fileName = fileName;
+        this.fileName = safeText + '.md';
         this.folderName = folderName;
         this.filePath = `${folderName}/${fileName}`;
     }
@@ -36,5 +37,10 @@ export default abstract class JournalisticEntity {
     public setFileName(fileName: string): void {
         this.fileName = fileName;
         this.filePath = `${this.folderName}/${this.fileName}`;
+    }
+
+    public export(): File {
+        const file = new File([this.content], `Journalistic/${this.filePath}`, { type: "text/markdown" });
+        return file;
     }
 }

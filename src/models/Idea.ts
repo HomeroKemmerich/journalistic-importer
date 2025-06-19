@@ -7,7 +7,7 @@ export class Idea extends JournalisticEntity {
         super(
             new Date(idea.created_dts),
             new Date(idea.updated_dts),
-            `${idea.shortDescription.slice(0, 16)}....md`,
+            idea.shortDescription,
             "Ideas"
         );
         const markdownEntries = [
@@ -15,7 +15,6 @@ export class Idea extends JournalisticEntity {
                 created_at: this.getCreatedAt().toISOString(),
                 updated_at: this.getUpdatedAt().toISOString(),
             }),
-            h2(idea.shortDescription),
             p(idea.longDescription)
         ];
         this.content = tsMarkdown(markdownEntries);

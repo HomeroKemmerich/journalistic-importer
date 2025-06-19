@@ -7,7 +7,7 @@ export class Tag extends JournalisticEntity {
         super(
             new Date(tag.created_dts),
             new Date(tag.updated_dts),
-            `${tag.name}.md`,
+            tag.name,
             "Tags"
         );
         const markdownEntries = [
@@ -17,7 +17,7 @@ export class Tag extends JournalisticEntity {
                 starred: tag.starred,
                 pinned: tag.pinned,
                 do: tag.doMore ? "more" : tag.doLess ? "less" : "",
-                tags: `#${tag.name}`
+                tags: [tag.name, tag.root]
             }),
             h2(tag.name)
         ];

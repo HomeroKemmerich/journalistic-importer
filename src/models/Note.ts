@@ -7,7 +7,7 @@ export class Note extends JournalisticEntity {
         super(
             new Date(note.created_dts),
             new Date(note.updated_dts),
-            `${note.title}.md`,
+            note.title,
             "Notes"
         );
         const markdownEntries = [
@@ -16,7 +16,6 @@ export class Note extends JournalisticEntity {
                 updated_at: this.getUpdatedAt().toISOString(),
                 tags: note.labels
             }),
-            h2(note.title),
             p(note.text)
         ];
         this.content = tsMarkdown(markdownEntries);
