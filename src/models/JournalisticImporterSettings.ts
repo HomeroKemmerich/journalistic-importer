@@ -1,1 +1,1 @@
-export default class JournalisticImporterSettings {}
+export class JournalisticImporterSettings {}
