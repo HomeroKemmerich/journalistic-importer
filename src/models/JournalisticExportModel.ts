@@ -1,9 +1,10 @@
-import { ExportData, ExportInfo, JournalisticExport } from "src/types/JournalisticExport";
+import { JournalisticExport, JournalisticExportData, JournalisticExportInfo } from "src/types/JournalisticExport";
+import { JournalisticData } from "./Data";
 import { Entry } from './Entry';
 
 export class JournalisticExportModel {
-    private info: ExportInfo
-    private data: ExportData
+    private info: JournalisticExportInfo;
+    private data: JournalisticData;
 
     constructor () {
 
@@ -13,20 +14,18 @@ export class JournalisticExportModel {
         const fileText = await file.text();
         const content: JournalisticExport = JSON.parse(fileText);
 
-        this.data = content.data;
+        this.data = new JournalisticData(content.data);
         this.info = content.info;
 
         return this;
     }
 
-    public getInfo(): ExportInfo {
+    public getInfo(): JournalisticExportInfo {
         return this.info;
     }
 
-    public getEntries(): Entry[] {
-        return this.data.entries.map(entry => {
-            return new Entry(entry);
-        })
+    public getData(): JournalisticData {
+        return this.data;
     }
 
 

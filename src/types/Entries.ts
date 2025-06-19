@@ -1,10 +1,10 @@
-export type Dream = {
+export type JournalisticDream = {
     created_dts: string;
     updated_dts: string;
     text: string;
 }
 
-export type Bullet = {
+export type JournalisticBullet = {
     created_dts: string;
     updated_dts: string;
     position: string;
@@ -16,6 +16,6 @@ export type EntryType = {
     created_dts: string;
     updated_dts: string;
     date: string;
-    dreams: Array<Dream>;
-    bullets: Array<Bullet>;
+    dreams: Array<JournalisticDream>;
+    bullets: Array<JournalisticBullet>;
 }

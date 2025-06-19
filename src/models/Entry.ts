@@ -1,10 +1,10 @@
 import { frontmatter, h1, h2, p, tsMarkdown, ul } from 'ts-markdown';
-import { Bullet, Dream, EntryType } from '../types/Entries';
+import { EntryType, JournalisticBullet, JournalisticDream } from '../types/Entries';
 
 export class Entry extends JournalisticEntity {
     private date: string;
-    private bullets: Bullet[];
-    private dreams: Dream[];
+    private bullets: JournalisticBullet[];
+    private dreams: JournalisticDream[];
     
     constructor(entry: EntryType) {
         super(

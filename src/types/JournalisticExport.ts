@@ -1,29 +1,29 @@
 import { EntryType } from "src/types/Entries";
-import { Gem, Goal, Idea } from "src/types/Gems";
-import { Note } from "src/types/Notes";
-import { Person, PersonGroup } from "src/types/People";
-import { NoteLabel, Tag, TagGroup } from "src/types/Tags";
+import { JournalisticGem, JournalisticGoal, JournalisticIdea } from "src/types/Gems";
+import { JournalisticNote, JournalisticNoteLabel } from "src/types/Notes";
+import { JournalisticPerson, JournalisticPersonGroup } from "src/types/People";
+import { JournalisticTag, JournalisticTagGroup } from "src/types/Tags";
 
-export type ExportInfo = {
+export type JournalisticExportInfo = {
     timestamp: string;
     journalisticVersion: string;
     exportVersion: number
 }
 
-export type ExportData = {
+export type JournalisticExportData = {
     entries: Array<EntryType>;
-    tags: Array<Tag>;
-    tagGroups: Array<TagGroup>;
-    people: Array<Person>;
-    personGroups: Array<PersonGroup>;
-    notes: Array<Note>;
-    noteLabels: Array<NoteLabel>;
-    goals: Array<Goal>;
-    gems: Array<Gem>;
-    ideas: Array<Idea>;
+    tags: Array<JournalisticTag>;
+    tagGroups: Array<JournalisticTagGroup>;
+    people: Array<JournalisticPerson>;
+    personGroups: Array<JournalisticPersonGroup>;
+    notes: Array<JournalisticNote>;
+    noteLabels: Array<JournalisticNoteLabel>;
+    goals: Array<JournalisticGoal>;
+    gems: Array<JournalisticGem>;
+    ideas: Array<JournalisticIdea>;
 }
 
 export type JournalisticExport = {
-    info: ExportInfo;
-    data: ExportData;
+    info: JournalisticExportInfo;
+    data: JournalisticExportData;
 }

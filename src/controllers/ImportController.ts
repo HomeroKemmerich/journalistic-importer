@@ -1,5 +1,4 @@
 import { App, Notice } from "obsidian";
-import { Entry } from "src/models/Entry";
 import { ImportView } from "src/views/ImportView";
 import { JournalisticExportModel } from "../models/JournalisticExportModel";
 
@@ -27,23 +26,21 @@ export class AppController {
     }
 
     public async onImportClicked(): Promise<void> {
-        const entries = this.journalisticExportModel.getEntries();
+        const data = this.journalisticExportModel.getData();
 
-        if (entries.length === 0) {
-            new Notice('No entries found');
-            return;
-        }
-
-        this.writeFiles(entries);
+        this.writeFiles(data.getContent());
     }
 
-    private writeFiles(entities: Entry[]): void{
-        this.app.vault.createFolder('entries')
+    private writeFiles(entities: any[]): void{
+        this.app.vault.createFolder('Journalistic');
         entities.forEach(entry => {
             const file = entry.getFileContent();
             const fileName = entry.getFileName();
+            const folderName = entry.getFolderName();
 
-            this.app.vault.create(fileName, file)
+            this.app.vault.createFolder(`Journalistic/${folderName}`);
+
+            this.app.vault.create(`Journalistic/${fileName}`, file)
                 .then(() => {
                     new Notice(`File ${fileName} created`);
                 })

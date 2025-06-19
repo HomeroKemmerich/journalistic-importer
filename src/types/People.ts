@@ -1,4 +1,4 @@
-export type Person = {
+export type JournalisticPerson = {
     created_dts: string;
     updated_dts: string;
     starred: boolean;
@@ -6,7 +6,7 @@ export type Person = {
     root: boolean;
 }
 
-export type PersonGroup = {
+export type JournalisticPersonGroup = {
     created_dts: string;
     updated_dts: string;
     starred: boolean;

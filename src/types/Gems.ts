@@ -1,11 +1,11 @@
-export type Goal = {
+export type JournalisticGoal = {
     created_dts: string;
     updated_dts: string;
     title: string;
     priority: number;
 }
 
-export type Gem = {
+export type JournalisticGem = {
     created_dts: string;
     updated_dts: string;
     date: string;
@@ -25,7 +25,7 @@ export enum GemType {
     Thought = 'Thought'
 }
 
-export type Idea = {
+export type JournalisticIdea = {
     created_dts: string;
     updated_dts: string;
     date: string;
