@@ -6,13 +6,12 @@ abstract class JournalisticEntity {
     protected filePath: string;
     protected content: string;
 
-    constructor(createdAt: Date, updatedAt: Date, fileName: string, folderName: string, content: string) {
+    constructor(createdAt: Date, updatedAt: Date, fileName: string, folderName: string) {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.fileName = fileName;
         this.folderName = folderName;
         this.filePath = `${folderName}/${fileName}`;
-        this.content = content;
     }
 
     public getFileName(): string {
@@ -32,5 +31,10 @@ abstract class JournalisticEntity {
     }
     public getUpdatedAt(): Date {
         return this.updatedAt;
-    }    
+    }
+
+    public setFileName(fileName: string): void {
+        this.fileName = fileName;
+        this.filePath = `${this.folderName}/${this.fileName}`;
+    }
 }

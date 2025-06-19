@@ -6,7 +6,7 @@ export class AppController {
 
     constructor(
         private app: App,
-        private journalisticExportModel: JournalisticExport,
+        private journalisticExport: JournalisticExport,
         private journalisticImporterView = new ImportView(
             app, 
             this.onFileImport.bind(this),
@@ -22,11 +22,11 @@ export class AppController {
 
     public async onFileImport(): Promise<void> {
         const journalisticFile = this.journalisticImporterView.getJournalisticFile();
-        await this.journalisticExportModel.fromJson(journalisticFile)
+        this.journalisticExport = new JournalisticExport(journalisticFile);
     }
 
     public async onImportClicked(): Promise<void> {
-        const data = this.journalisticExportModel.getData();
+        const data = this.journalisticExport.getData();
     }
 
     private writeFiles(entities: any[]): void{

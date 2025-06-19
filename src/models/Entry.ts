@@ -12,7 +12,6 @@ export class Entry extends JournalisticEntity {
             new Date(entry.updated_dts),
             `${entry.date}.md`,
             'Entries',
-            `Entries/${entry.date}.md`,
         )
 
         this.date = entry.date;

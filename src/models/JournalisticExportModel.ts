@@ -1,4 +1,4 @@
-import { JournalisticExportData, JournalisticExportInfo, JournalisticExportType } from "src/types/JournalisticExport";
+import { JournalisticExportInfo, JournalisticExportType } from "src/types/JournalisticExport";
 import { JournalisticData } from "./Data";
 
 export class JournalisticExport {
@@ -24,5 +24,8 @@ export class JournalisticExport {
         return this.data;
     }
 
+    public import(): void {
+
+    }
 
 }
