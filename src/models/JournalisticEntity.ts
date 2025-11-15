@@ -7,7 +7,7 @@ export default abstract class JournalisticEntity {
     protected content: string;
 
     constructor(createdAt: Date, updatedAt: Date, fileName: string = '', folderName: string) {
-        const safeText = fileName.replace('\n', ' ').replace(/[\\/:*?"<>|]/g, '').slice(0, 16);
+        const safeText = fileName.replace('\n', ' ').replace(/[\\/:*?"<>|]/g, '');
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.fileName = safeText + '.md';
