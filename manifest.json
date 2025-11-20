@@ -1,9 +1,9 @@
 {
 	"id": "journalistic-importer",
 	"name": "Journalistic Importer",
-	"version": "1.0.5",
+	"version": "1.0.11",
 	"minAppVersion": "0.15.0",
-	"description": "Import Journalistic entries into Obsidian.",
+	"description": "Import your Journalistic exported entries.",
 	"author": "Homero Kemmerich",
 	"authorUrl": "https://github.com/HomeroKemmerich",
 	"fundingUrl": "https://www.paypal.com/donate/?hosted_button_id=UXLVMWFXHWTY2",
