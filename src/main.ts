@@ -17,7 +17,7 @@ export default class JournalisticImporter extends Plugin {
 		);
 
 		// Left ribbon icon
-		const ribbonIconEl = this.addRibbonIcon('import', 'Journalistic Importer', (evt: MouseEvent) => {
+		const ribbonIconEl = this.addRibbonIcon('import', 'Import journalistic data', (evt: MouseEvent) => {
 			this.controller.start();
 		});
 

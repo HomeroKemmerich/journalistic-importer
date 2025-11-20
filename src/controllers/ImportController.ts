@@ -17,7 +17,7 @@ export class AppController {
         );
     }
 
-    public async start() {
+    public start() {
         this.journalisticImporterView.open();
         this.journalisticImporterView.listenForFileInput();
     }
@@ -39,14 +39,14 @@ export class AppController {
                 return;
             }
             this.journalisticImporterView.close();
-            this.app.vault.createFolder('Journalistic');
+            await this.app.vault.createFolder('Journalistic');
             const exportData = this.journalisticExport.export();
             for (const key of Object.keys(exportData)) {
-                this.app.vault.createFolder(`Journalistic/${key}`);
+                await this.app.vault.createFolder(`Journalistic/${key}`);
                 for (const item of exportData[key]) {
                     try {
-                        console.log(`Creating file: Journalistic/${key}/${item.getFileName()}`);
-                        this.app.vault.create(`Journalistic/${key}/${item.getFileName()}`, item.getContent());
+                        console.debug(`Creating file: Journalistic/${key}/${item.getFileName()}`);
+                        await this.app.vault.create(`Journalistic/${key}/${item.getFileName()}`, item.getContent());
                     } catch (error) {
                         console.error(`Error creating ${item.getFileName()} in  ${key}`)
                     }

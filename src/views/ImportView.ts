@@ -31,7 +31,7 @@ export class ImportView extends Modal {
 		this.cancelButton 	= this.actionRow.createEl('button', { text: 'Cancel', cls: 'cta-button' });
 		this.importButton 	= this.actionRow.createEl('button', { text: 'Import', cls: 'cta-button' });
 				
-		this.cancelButton.onClickEvent(() => this.close);
+		this.cancelButton.onClickEvent(() => this.close());
 		this.importButton.onClickEvent(() => {
 			this.onImportClicked();
 			this.close();
@@ -50,8 +50,8 @@ export class ImportView extends Modal {
 		this.onOpen();
 	}
 	
-	public async listenForFileInput(){
-		this.importInput.addEventListener('change', async (e: Event) => {
+	public listenForFileInput(){
+		this.importInput.addEventListener('change', (e: Event) => {
 			const target = e.target as HTMLInputElement;
 			const files = target.files;
 			
